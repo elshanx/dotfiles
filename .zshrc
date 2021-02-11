@@ -1,4 +1,4 @@
-ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
 
 plugins=(
   git-auto-fetch
@@ -8,7 +8,6 @@ plugins=(
 )
 
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
-(cat ~/.cache/wal/sequences &)
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

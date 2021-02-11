@@ -41,6 +41,7 @@ fi
 
 # start some nice programs
 
+
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
   [ -x "$f" ] && . "$f"
@@ -52,4 +53,3 @@ feh --bg-scale $HOME/Pictures/Wallpapers/synthpop-synth-retrowave-darkwave-.jpg
 xsetroot -cursor_name left_ptr
 picom --no-fading-openclose --config ~/.config/picom/picom.conf &
 exec bspwm
-wal -R
