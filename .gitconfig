@@ -1,0 +1,19 @@
+[user]
+	email = elshanxakbarov@gmail.com
+	name = elshanx
+[alias]
+	lg = log --graph --pretty=format:'%C(auto)%h -%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	nccommit = commit -a --allow-empty-message -m \"\"
+[color]
+	ui = true
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
+[core]
+	editor = code --wait
+	pager = 
+[rerere]
+	enabled = true
+[push]
+	default = current
