@@ -1,5 +1,28 @@
 #!/bin/sh
 
+packages=(
+  zsh
+  vim
+  neovim
+  htop
+  neofetch
+  ffmpeg
+  fd-find
+  fd
+  python-pywal
+)
+
+
+for u in "${packages[@]}"
+do
+  if    [ -x "$(command -v pacman)" ];   then yay -S $u
+  elif  [ -x "$(command -v apt)" ];    then sudo apt install $u
+  else break
+done
+echo "FAILED TO INSTALL PACKAGES: Package manager not found. You must manually install: $u">&2;
+
+printf "packages installed\n"
+
 # download and install omz
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -29,4 +52,11 @@ nvm install node
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
-echo "Done"
+# change shell to zsh
+chsh -s $(which zsh)
+
+read -p "Reboot? (Y/n): " -r -n 1
+if [[ ! $REPLY =~ ^[Nn]$ ]]; then
+  reboot
+else printf "\nDone."
+fi
